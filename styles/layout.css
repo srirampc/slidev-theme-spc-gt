@@ -1,0 +1,219 @@
+:root {
+  /* default theme color */
+  /* --slidev-theme-primary: #ffd500; */
+  --slidev-theme-primary: #eaaa00;
+  --slidev-theme-supplement: #fff7c8;
+  --slidev-code-font-size: 1.125rem;
+  --slidev-code-line-height: 1.75rem;
+}
+
+.slidev-layout {
+  font-family: 'Nunito Sans', sans-serif;
+  padding-top: 2.5rem;
+  margin-left: 0.5rem;
+  font-size: 20px;
+
+  ul li p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h1,h2,h3,h4,h5,.kfu-heading {
+    font-weight: 600;
+
+    em strong {
+      font-style: normal;
+      background-color: transparent;
+      text-decoration-line: underline;
+      text-decoration-color: var(--slidev-theme-primary);
+      text-decoration-thickness: 0.2em;
+      text-underline-offset: 0.05em;
+      text-decoration-skip-ink: none;
+    }
+  }
+
+  em strong {
+    font-style: normal;
+    background-color: transparent;
+    text-decoration-line: underline;
+    text-decoration-color: var(--slidev-theme-primary);
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.05em;
+    text-decoration-skip-ink: none;
+  }
+}
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  @apply h-full grid;
+
+  h1 {
+    @apply text-6xl leading-20;
+  }
+
+  h1 + p {
+    @apply -mt-2 opacity-50 mb-4;
+  }
+
+  p + h2,
+  ul + h2,
+  table + h2 {
+    @apply mt-10;
+  }
+}
+
+.slidev-layout ul {
+  margin: 0.25em 0;
+  padding: 0 1em;
+  list-style: none;
+}
+
+.slidev-layout ul > li::before {
+  content: "";
+  border-color: transparent var(--slidev-theme-primary);
+  border-style: solid;
+  border-width: 0.27em 0 0.27em 0.5em;
+  display: block;
+  height: 0;
+  width: 0;
+  left: -1em;
+  top: 1.1em;
+  position: relative;
+}
+
+/* custom styling rules */
+
+pre.shiki {
+  background-color: var(--shiki-light-bg);
+}
+html.dark pre.shiki {
+  background-color: var(--shiki-dark-bg);
+}
+.slidev-code-wrapper {
+  button {
+    color: white;
+  }
+}
+
+header, footer {
+  font-size: 12px;
+}
+
+.slidev-vclick-target {
+  transition: opacity 200ms ease;
+}
+
+.slidev-vclick-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* KaTeX line highlighting: hide non-active equation rows completely visually.
+   Keep layout space, so aligned equations don't jump between clicks. */
+.slidev-katex-wrapper .mord.dishonored {
+  opacity: 0;
+}
+
+.slidev-layout .block {
+  position: relative;
+  border: 5px solid var(--slidev-theme-primary);
+  border-radius: 10px;
+  background-color:#f5f5f5;
+  padding: 0.75em 1em 0.25em 1em;
+  text-align: left;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
+  padding-top: 1em;
+}
+
+.slidev-layout .block .block-title {
+  position: absolute;
+  top: -1.3em;
+  left: 10px;
+  border-radius: 10px;
+  background-color: var(--slidev-theme-supplement);
+  border: 5px solid var(--slidev-theme-primary);
+  font-weight: 600;
+  padding: 2px 5px;
+}
+
+.dark .slidev-layout .block {
+  background-color: #222;
+
+  .block-title {
+    background-color: #331;
+
+  }
+}
+
+.decor {
+  position: absolute;
+  z-index: -100;
+  padding: 15px;
+  background-color: var(--slidev-theme-primary);
+  color: var(--slidev-theme-supplement);
+  border-radius: 30%;
+}
+
+.admonition-warning {
+  --admonition-primary: rgb(255, 145, 0);
+  --admonition-secondary: rgba(255, 145, 0, 0.2);
+}
+
+.admonition-danger {
+  --admonition-primary: rgb(255, 82, 82);
+  --admonition-secondary: rgba(255, 82, 82, 0.2);
+}
+
+.admonition-info {
+  --admonition-primary: rgb(0, 176, 255);
+  --admonition-secondary: rgba(0, 176, 255, 0.2);
+}
+
+.admonition-gt {
+  --admonition-primary:  #eaaa00;
+  --admonition-secondary: rgba(0, 76, 151, 0.2);
+}
+
+
+.admonition-base {
+  --admonition-primary: rgb(101, 31, 255);
+  --admonition-secondary: rgba(101, 31, 255, 0.2);
+}
+
+
+.admonition {
+  border-left: 8px solid var(--admonition-primary);
+  box-shadow: 0 .2rem .5rem rgba(0,0,0,.05),0 0 .0625rem rgba(0,0,0,.1);
+  margin-bottom: 0.75rem;
+
+  .admonition-body {
+    padding: 5px 10px;
+    background-color: var(--admonition-bg-body);
+  }
+
+  .admonition-title {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px 0 10px;
+    font-weight: 600;
+    background-color: var(--admonition-secondary);
+
+    .admonition-icon {
+      margin-right: 8px;
+      color: var(--admonition-primary);
+    }
+  }
+
+}
+
+img.withcaption + em, div.slidev-code-wrapper + em {
+  font-size: 0.75rem;
+  opacity: 0.5;
+}
+
+div.mermaid + p {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-top: 0;
+}

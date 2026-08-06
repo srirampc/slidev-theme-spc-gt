@@ -1,0 +1,44 @@
+{
+  "name": "slidev-theme-spc-gt",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "keywords": [
+    "slidev-theme",
+    "slidev"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "slidev": ">=0.19.3"
+  },
+  "scripts": {
+    "build": "slidev build example/slides.md",
+    "dev": "slidev example/slides.md --open",
+    "export": "slidev export example/slides.md",
+    "screenshot": "slidev export example/slides.md --format png"
+  },
+  "dependencies": {
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/openmoji": "^1.2.28",
+    "@iconify-json/twemoji": "^1.2.5",
+    "@iconify/vue": "^5.0.1",
+    "@slidev/types": "^52.19.0"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.19.0",
+    "prettier": "^3.9.6"
+  },
+  "//": "Learn more: https://sli.dev/themes/write-a-theme.html",
+  "slidev": {
+    "colorSchema": "both",
+    "highlighter": "all",
+    "defaults": {
+      "author": "Sriram P C",
+      "transition": "slide-left",
+      "fonts": {
+        "sans": "Nunito Sans",
+        "mono": "Fira Mono"
+      }
+    }
+  }
+}
