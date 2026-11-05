@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { handleBackground } from '../layoutHelper'
 import BottomLogoGtExt from '../components/bottom-logo-gt-ext.vue';
 import LogoGtExt from '../components/logo-gt-ext.vue';
 
 const props = defineProps({
+  background: {
+    // Resolved by Vite via new URL so the theme-bundled asset is served correctly
+    default: new URL('../assets/cover-background.png', import.meta.url).href
+  },
   presenterName: { type: String },
   affiliation: { type: String },
   extra: { type: String },
@@ -13,10 +19,11 @@ const props = defineProps({
   coverMediaPosition: { type: String, default: 'center' },
   coverMediaClipRadius: { type: String, default: '81%' },
 })
+const style = computed(() => handleBackground(props.background, true))
 </script>
 
 <template>
-  <div class="slidev-layout cover">
+  <div class="slidev-layout cover" :style="style">
     <div class="my-auto w-full">
       <slot />
 

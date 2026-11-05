@@ -9,7 +9,7 @@
   ],
   "engines": {
     "node": ">=18.0.0",
-    "slidev": ">=0.19.3"
+    "slidev": ">=v0.47.0"
   },
   "scripts": {
     "build": "slidev build example/slides.md",
