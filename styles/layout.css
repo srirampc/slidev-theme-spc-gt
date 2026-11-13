@@ -8,7 +8,7 @@
 }
 
 .slidev-layout {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: inherit;  /* Use the font family selected by Slidev frontmatter. */
   padding-top: 2.5rem;
   margin-left: 0.5rem;
   font-size: 20px;
