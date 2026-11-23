@@ -6,7 +6,7 @@ const props = defineProps({
 
 <template>
     <div class="block">
-    <span class="block-title">{{ title }}</span>
+    <span v-if="title" class="block-title">{{ title }}</span>
         <slot></slot>
     </div>
 </template>

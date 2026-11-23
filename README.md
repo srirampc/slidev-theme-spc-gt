@@ -20,16 +20,40 @@ theme: path/to/slidev-theme-spc-gt
 
 Learn more about [how to use a Slidev theme](https://sli.dev/themes/use).
 
+## Colors
+
+By default, slides use Georgia Tech's recommended text and title colors:
+
+- Content text: `#051E39` (Navy)
+- Titles / headings: `#8F713D` (Dark Gold)
+
+To disable these colors and revert to black (`#000000`) across the entire deck, set `gtColors: false` in `themeConfig`:
+
+```yaml
+---
+theme: path/to/slidev-theme-spc-gt
+themeConfig:
+  gtColors: false
+---
+```
+
+You can also customize the colors via `themeConfig` (`text-color` and `title-color`), or disable GT colors for a single slide using `class: plain-colors` (or `layoutClass: plain-colors` on `two-cols` / `two-cols-header`).
+
 ## Layouts
 
 This theme provides the following custom layouts:
 
-- `cover` — title slide layout with presenter name, affiliation, optional extra content, and optional circular cover media.
+- `cover` — title slide layout with presenter name, affiliation, and optional extra content.
 - `default` — regular content slide layout.
-- `intro` — centered introductory section slide.
+- `intro` — left-aligned introductory slide.
+- `section` — centered section divider slide.
+- `image-left` — image on the left, content on the right with the default GT background.
+- `image-right` — content on the left, image on the right with the default GT background.
+- `two-cols` — two-column content layout with the default GT background.
+- `two-cols-header` — header with two columns and an optional bottom row.
 - `end` — centered closing / thank-you slide.
 
-The theme also inherits Slidev's base layouts via `@slidev/client/styles/layouts-base.css`, so standard layouts such as `image-right` or `two-cols-header` remain available.
+The theme also inherits Slidev's base layouts via `@slidev/client/styles/layouts-base.css`, so standard layouts such as `center` or `fact` remain available.
 
 ## Components
 
@@ -75,27 +99,12 @@ A background decoration container, typically used with Iconify icons.
 </decor>
 ```
 
-### `<cover-circle-media>`
-
-Displays an image or video clipped into the circular title-slide decoration. This is mainly used by the `cover` layout through frontmatter props:
-
-```yaml
----
-layout: cover
-coverMedia: assets/title/example.jpg
-coverMediaAlt: Example image
-coverMediaOpacity: 0.9
----
-```
-
-The component detects common video extensions automatically (`.mp4`, `.webm`, `.ogg`, `.mov`),
-or you can set `coverMediaType: video` explicitly.
-
 ### Branding components
 
 The theme includes SVG-based branding helpers:
 
-- `<logo-gt-ext>` —  Georgia Tech extented logo  
+- `<logo-gt-ext>` — Georgia Tech extended logo
+- `<bottom-logo-gt-ext>` — bottom-right positioned Georgia Tech extended logo
 
 ## Development
 

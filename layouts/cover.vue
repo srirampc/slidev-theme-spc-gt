@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { handleBackground, handleBackgroundNC, resolveAssetUrl } from '../layoutHelper'
-import BottomLogoGtExt from '../components/bottom-logo-gt-ext.vue';
-import LogoGtExt from '../components/logo-gt-ext.vue';
+import { handleBackgroundNC } from '../layoutHelper'
 
 const props = defineProps({
   background: {
@@ -12,20 +10,8 @@ const props = defineProps({
   presenterName: { type: String },
   affiliation: { type: String },
   extra: { type: String },
-  coverMedia: { type: String, default: '' },
-  coverMediaType: { type: String, default: '' },
-  coverMediaAlt: { type: String, default: '' },
-  coverMediaOpacity: { type: [String, Number], default: 1 },
-  coverMediaPosition: { type: String, default: 'center' },
-  coverMediaClipRadius: { type: String, default: '81%' },
 })
-// Left-weighted dim: the GT art's gold arc sweeps through the left half where
-// the title sits, so fade that side harder (uniform dim left the arc visible
-// through the title text). Right side keeps the artwork (and GT logo) visible.
-const style = computed(() => ({
-  ...handleBackgroundNC(props.background, false),
-  //backgroundImage: `linear-gradient(to right, #000c 0%, #0008 45%, #0005 100%), url("${CSS.escape(resolveAssetUrl(props.background))}")`,
-}))
+const style = computed(() => handleBackgroundNC(props.background, false))
 </script>
 
 <template>
@@ -43,7 +29,6 @@ const style = computed(() => ({
       <div class="mt-8" style="font-size: 15px;">
         <slot name="extra">{{ extra }}</slot>
       </div>
-      <bottom-logo-gt-ext />
     </div>
   </div>
 </template>

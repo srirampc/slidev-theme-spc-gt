@@ -3,8 +3,8 @@
   import { Icon } from '@iconify/vue';
 
   const props = defineProps({
-    kind: { type: String, default: "base" },
-    title: { type: String },
+    kind: { type: String, default: "base" },
+    title: { type: String },
     icon: { type: String },
   })
 
@@ -14,7 +14,7 @@
     case "warning": return "mdi:warning";
     case "danger": return "mdi:alert-octagram";
     case "info": return "mdi:info";
-    case "kfu": return "mdi:format-list-bulleted-type";
+    case "gt": return "mdi:format-list-bulleted-type";
     default: return "mdi:abacus";
   }
   });

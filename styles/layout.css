@@ -1,16 +1,26 @@
 :root {
   /* default theme color */
-  /* --slidev-theme-primary: #ffd500; */
   --slidev-theme-primary: #eaaa00;
   --slidev-theme-supplement: #fff7c8;
+  --slidev-theme-text-color: #051E39;
+  --slidev-theme-title-color: #8F713D;
   --slidev-code-font-size: 1.125rem;
   --slidev-code-line-height: 1.75rem;
 }
 
+html.gt-plain-colors .slidev-layout,
+.slidev-layout.plain-colors,
+.slidev-layout .plain-colors {
+  --slidev-theme-text-color: #000000;
+  --slidev-theme-title-color: #000000;
+  color: var(--slidev-theme-text-color);
+}
+
 .slidev-layout {
+  color: var(--slidev-theme-text-color);
   font-family: inherit;  /* Use the font family selected by Slidev frontmatter. */
   padding-top: 2.5rem;
-  margin-left: 0.5rem;
+  padding-left: 4rem;
   font-size: 20px;
 
   ul li p {
@@ -18,7 +28,11 @@
     margin-bottom: 0;
   }
 
-  h1,h2,h3,h4,h5,.kfu-heading {
+  :where(h1, h2, h3, h4, h5, .gt-heading) {
+    color: var(--slidev-theme-title-color);
+  }
+
+  h1,h2,h3,h4,h5,.gt-heading {
     font-weight: 600;
 
     em strong {
@@ -44,7 +58,8 @@
 }
 
 .slidev-layout.cover,
-.slidev-layout.intro {
+.slidev-layout.intro,
+.slidev-layout.section {
   @apply h-full grid;
 
   h1 {
@@ -85,9 +100,6 @@
 
 pre.shiki {
   background-color: var(--shiki-light-bg);
-}
-html.dark pre.shiki {
-  background-color: var(--shiki-dark-bg);
 }
 .slidev-code-wrapper {
   button {
@@ -137,18 +149,10 @@ header, footer {
   padding: 2px 5px;
 }
 
-.dark .slidev-layout .block {
-  background-color: #222;
-
-  .block-title {
-    background-color: #331;
-
-  }
-}
-
 .decor {
   position: absolute;
-  z-index: -100;
+  z-index: 0;
+  pointer-events: none;
   padding: 15px;
   background-color: var(--slidev-theme-primary);
   color: var(--slidev-theme-supplement);
@@ -171,8 +175,8 @@ header, footer {
 }
 
 .admonition-gt {
-  --admonition-primary:  #eaaa00;
-  --admonition-secondary: rgba(0, 76, 151, 0.2);
+  --admonition-secondary:  #eaaa00;
+  --admonition-primary: rgba(0, 76, 151);
 }
 
 
@@ -189,7 +193,7 @@ header, footer {
 
   .admonition-body {
     padding: 5px 10px;
-    background-color: var(--admonition-bg-body);
+    background-color: #ffffff;
   }
 
   .admonition-title {

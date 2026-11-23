@@ -1,14 +1,20 @@
 ---
-theme: ../../slidev-theme-spc-gt
+theme: ../
 author: Sriram P C
 presenterName:  Sriram P C
 affiliation: Institute for Data Engineering and Science @ Georgia Institute of Technology
 mdc: true
+short-title: Example
+themeConfig:
+  # Set gtColors false to set the title and text colors to black
+  gtColors: true
 ---
 
-# A _**Somewhat Long Title**_ for a Math Talk or Lecture
+## A _**Somewhat Long Title**_ for 
+## a Math Talk or Lecture
 
-### Some Subtitle, Maybe Software | _**Conference**_ @ Place, Country
+### _Some Subtitle or Software_
+#### _**Conference**_ @ Place, Country
 
 <template #extra>
 
@@ -23,17 +29,24 @@ Extra content: Joint work with [Some Colleague](#) and [Other Colleague](#)
 
 Slidev is a slide maker and <span v-mark.yellow>presentation tool</span> designed for developers.
 
-A [Slidev](https://github.com/slidevjs/slidev) theme 
-heavily borrowed from the [behackl/slidev-theme-behackl-kfu](https://github.com/behackl/slidev-theme-behackl-kfu).
+[slidev-theme-spc-gt](https://github.com/srirampc/slidev-theme-spc-gt) is 
+a [Slidev](https://github.com/slidevjs/slidev) theme heavily borrowed from
+the [behackl/slidev-theme-behackl-kfu](https://github.com/behackl/slidev-theme-behackl-kfu)
 theme by [Benjamin Hackl](https://benjamin-hackl.at).
 
-<div v-click>
+Key Features:
+- `light` theme with GT Background/colors
+- Callout box for warnings, notes, danger messages, and themed remarks.
+- Highlighted content block with `<block>`
+- `section`, `intro`, `two-cols-header`, `two-cols` `image-left` and `image-right` layout with GT Backgrounds
 
-To start a new presentation, simply start a new file `slides.md`
+---
+
+
+To start a new presentation, simply start a new file `slides.md` (default name)
 with a bit of content like
 
-</div>
-<div v-click="3">
+<div v-click="1">
 
 ```md {none|1-5|all}{lines: true, at: '+1'}
 ---
@@ -91,7 +104,7 @@ here is something dangerous!
 here is something interesting!
 ::
 
-::admonition{title="GT branding!" kind="gt"}
+::admonition{title="GT Gold and Blue!" kind="gt"}
 Here is something GaTech related!
 ::
 
@@ -147,40 +160,53 @@ $$ F(n) = \binom{2n}{n} \Big( -\frac{n^2}{8} + \frac{n}{24} + o(n) \Big) $$
 </div>
 
 ---
+layout: intro
+---
 
-# *__Act II__* -- `dependent_bterms` in SageMath
+# Introduction Layout
+
+A left-aligned introductory slide with the GT section background.
+
+---
+layout: section
+---
+
+# Section Divider
+
+Centered section layout matching Slidev's default `section` layout.
+
+---
+
+# _**Progressive**_ Lists & Decorations
 
 <v-clicks depth="2">
 
-- **$B$-terms:** $O$-terms with explicit constant + validity point,
-  e.g., $B_{n\geq 100}(42 n^3)$
+- **Step-by-step reveals** using Slidev's `v-clicks`:
 
-- Package extends SageMath; assume $n\to\infty$:
+  - Support for nested lists with `depth="2"`
 
-  - Support for additional monomially bounded variable $n^\alpha \leq k \leq n^\beta$
-
-  - Taylor expansions with (and at) $B$-terms
-
+  - Combine with `<decor>` elements for subtle visual accents
 
 </v-clicks>
 
 <div class="grid grid-cols-[2fr_1fr] gap-4">
 <div>
-<v-clicks at="5">
+<v-clicks at="3">
 
-- Installation:
+- Install dependencies and start the preview server:
   ```sh
-  $ sage -pip install dependent_bterms
+  $ pnpm install && pnpm dev
   ```
 
-- Try it! Interactive demo at [behackl.dev/asy/dbt](https://behackl.dev/asy/dbt), or
-  view [static version](https://github.com/behackl/dependent_bterms/blob/main/toolbox_demo.ipynb)
-  on GitHub
+- Build static slides for sharing:
+  ```sh
+  $ pnpm build
+  ```
 
 </v-clicks>
 </div>
 <div>
-<decor v-click="5" class="bottom-30 right-30"><mdi-laptop/></decor>
+<decor v-click="3" class="bottom-30 right-30"><mdi-laptop/></decor>
 </div>
 </div>
 
@@ -202,6 +228,29 @@ def fibonacci(n):
         return 1
     return fibonacci(n-1) + fibonacci(n-2)
 ```
+
+---
+layout: image-left
+image: https://picsum.photos/900/600
+---
+
+# Image Left
+
+Image on the left, content on the right with the default GT background.
+
+---
+layout: two-cols
+---
+
+# Left Column
+
+Content in the left column with the default GT background.
+
+::right::
+
+# Right Column
+
+Content in the right column.
 
 ---
 layout: two-cols-header
@@ -232,6 +281,3 @@ class: "text-center"
 ---
 
 # Thank you!
-
-
-

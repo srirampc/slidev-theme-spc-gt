@@ -19,24 +19,24 @@
   },
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/openmoji": "^1.2.29",
+    "@iconify-json/openmoji": "^1.2.31",
     "@iconify-json/twemoji": "^1.2.5",
-    "@iconify/vue": "^5.0.3",
+    "@iconify/vue": "^5.0.5",
     "@slidev/types": "^52.20.1"
   },
   "devDependencies": {
     "@slidev/cli": "^52.20.1",
-    "prettier": "^3.9.10"
+    "playwright-chromium": "^1.65.1",
+    "prettier": "^3.10.1"
   },
   "//": "Learn more: https://sli.dev/themes/write-a-theme.html",
   "slidev": {
-    "colorSchema": "both",
-    "highlighter": "all",
+    "colorSchema": "light",
+    "highlighter": "shiki",
     "defaults": {
-      "author": "Sriram P C",
       "transition": "slide-left",
       "fonts": {
-        "sans": "Nunito Sans",
+        "sans": "Roboto",
         "mono": "Fira Mono"
       }
     }
